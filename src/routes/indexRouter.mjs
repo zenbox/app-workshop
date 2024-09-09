@@ -21,6 +21,7 @@ const indexRouter = express.Router();
 // Funktion, die Inhalte und Daten mit einem Template verküpft
 // und an den Client zurückliefert
 const onGetIndex = (request, response) => {
+    // Template-Name "index.ejs" und Daten
     response.render("index", {
         title: "Webapplication",
         message: "Hello World!",

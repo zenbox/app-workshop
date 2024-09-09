@@ -15,7 +15,9 @@
 // Import modules
 import path from "path"; // internal nodejs module
 import express from "express"; // external module
+
 import indexRouter from "./src/routes/indexRouter.mjs"; // own internal module
+import loginRouter from "./src/routes/loginRouter.mjs"; // own internal module
 
 // Variables and constants
 const app = express(); // Siehe Dokumentation ...
@@ -35,6 +37,8 @@ app.set("views", path.resolve("./src/views"));
 app.use("/", indexRouter);
 app.use("/index.html", indexRouter);
 app.use("/firlefanz", indexRouter);
+
+app.use("/login", loginRouter);
 
 // Webservice starten
 app.listen(port, hostname, () => {

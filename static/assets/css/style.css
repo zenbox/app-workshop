@@ -16,12 +16,18 @@ nav ul {
     margin: 0;
     padding: 0;
 }
-a:link, a:visited, a:hover, a:active {
+a:link,
+a:visited,
+a:hover,
+a:active {
     color: hsla(0, 0%, 100%, 0.85);
     text-decoration: none;
 }
 
 a::before {
-    content: '>> ';
+    content: ">> ";
     margin-right: 0.5em;
+}
+body {
+    margin: 3rem;
 }
