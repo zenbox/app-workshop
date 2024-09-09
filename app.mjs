@@ -25,7 +25,7 @@ const port = 8000;
 
 // Verzeichnis, in dem sämtliche (statischen) Dateien zur Verwendung
 // in dynamisch erzuegten HTML - Dokumenten liegen
-app.use(express.static(path.resolve("assets")));
+app.use(express.static(path.resolve("static")));
 
 // ejs - HTML-Templates mit Embedded Javascript!
 app.set("view engine", "ejs");
