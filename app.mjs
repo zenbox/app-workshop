@@ -12,14 +12,17 @@
  * @copyright (c) 2024 Michael Reichart, Cologne
  */
 
-// Import modules
-import path from "path"; // internal nodejs module
+// internal nodejs modules
+import path from "path";
 
-import express from "express"; // external module
-import bodyParser from "body-parser"; // external module
+// external modules
+import express from "express";
+import bodyParser from "body-parser";
 
-import indexRouter from "./src/routes/indexRouter.mjs"; // own internal module
-import loginRouter from "./src/routes/loginRouter.mjs"; // own internal module
+// own internal modules
+import indexRouter from "./src/routes/indexRouter.mjs";
+import loginRouter from "./src/routes/loginRouter.mjs";
+import registerRouter from "./src/routes/registerRouter.mjs";
 
 // Variables and constants
 const app = express(); // Siehe Dokumentation ...
@@ -40,9 +43,9 @@ app.set("views", path.resolve("./src/views"));
 // Dynamische Routen
 app.use("/", indexRouter);
 app.use("/index.html", indexRouter);
-app.use("/firlefanz", indexRouter);
 
 app.use("/login", loginRouter);
+app.use("/register", registerRouter);
 
 // Webservice starten
 app.listen(port, hostname, () => {
