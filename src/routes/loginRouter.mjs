@@ -12,11 +12,14 @@
 
 // Import modules
 import path from "path";
+// - - - - -
 import express from "express";
-import bodyParser from "body-parser";
+import bodyParser from "body-parser"; 
+// - - - - -
 
 import Auth from "../controls/authController.mjs";
 const auth = new Auth();
+auth.initDb();
 
 const loginRouter = express.Router();
 
@@ -26,7 +29,7 @@ const onGetLogin = (request, response) => {
     response.render("login", {
         title: "Login",
         message: "Please login!",
-    });
+    });x
 };
 
 const onPostLogin = (request, response) => {

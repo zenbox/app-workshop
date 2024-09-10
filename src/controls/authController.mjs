@@ -1,4 +1,4 @@
-/** Autentifcation Controller
+/** Authentifcation Controller
  *
  * @package Webapplication
  * @module Authentification
@@ -10,10 +10,23 @@
  * @copyright (c) 2024 Michael Reichart, Cologne
  */
 
+import { initDb } from "../models/database.mjs";
+
 class Auth {
+    async initDb() {
+        this.db = await initDb();
+    }
+
     handleLogin(username, password) {
         console.log("Authentification: ", username, password);
     }
 }
 
 export default Auth;
+
+/* Funktionaler Ansatz:
+ const handleLogin = (username, password) => { ... };
+ const handleLogout = () => { ... };
+
+ export { handleLogin, handleLogout };
+ */
