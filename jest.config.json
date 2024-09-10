@@ -1,0 +1,7 @@
+{
+    "transform": {},
+    "moduleFileExtensions": ["js", "mjs"],
+    "testEnvironment": "node",
+    "verbose": true,
+    "testMatch": ["**/?(*.)+(test).mjs"]
+}

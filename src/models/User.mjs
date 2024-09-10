@@ -47,6 +47,15 @@ class User {
      * @returns {void}
      */
     verifyPassword() {}
+
+    async fetchUser(db) {
+        const resultset = await db.all("SELECT * FROM users");
+
+        console.log("RESULT: ");
+        console.dir(resultset);
+
+        return resultset;
+    }
 }
 
 export default User;

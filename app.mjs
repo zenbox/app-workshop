@@ -23,6 +23,7 @@ import bodyParser from "body-parser";
 import indexRouter from "./src/routes/indexRouter.mjs";
 import loginRouter from "./src/routes/loginRouter.mjs";
 import registerRouter from "./src/routes/registerRouter.mjs";
+import userListRouter from "./src/routes/userListRouter.mjs";
 
 // Variables and constants
 const app = express(); // Siehe Dokumentation ...
@@ -43,6 +44,7 @@ app.set("views", path.resolve("./src/views"));
 // Dynamische Routen
 app.use("/", indexRouter);
 app.use("/index.html", indexRouter);
+app.use("/userlist", userListRouter);
 
 app.use("/login", loginRouter);
 app.use("/register", registerRouter);
