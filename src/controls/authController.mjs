@@ -11,6 +11,8 @@
  */
 
 import { initDb } from "../models/database.mjs";
+import User from "../models/User.mjs";
+const user = new User();
 
 class Auth {
     async initDb() {
@@ -19,6 +21,18 @@ class Auth {
 
     handleLogin(username, password) {
         console.log("Authentification: ", username, password);
+    }
+
+    handleRegister(username, password) {
+        console.log("Register: ", username, password);
+
+        let result = user.createUser(this.db, username, password);
+
+        if (result) {
+            console.log("User created");
+        } else {
+            console.log("User not created");
+        }
     }
 }
 

@@ -31,3 +31,12 @@ a::before {
 body {
     margin: 3rem;
 }
+
+nav ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+nav ul li {
+    margin-right: 1em;
+}
