@@ -21,7 +21,9 @@
             <h1><%= title %></h1>
             <p><%= message %></p>
 
-            <form action="">
+            <form
+                action="/login"
+                method="post">
                 <fieldset>
                     <legend>Benutzeranmeldung</legend>
                     <label for="username">Benutzername:</label>
@@ -29,21 +31,22 @@
                         type="text"
                         id="username"
                         name="username"
+                        value="Michael"
                         required />
 
                     <label for="password">Passwort:</label>
                     <input
-                        type="password"
+                        type="text"
                         id="password"
                         name="password"
+                        value="12345"
                         required />
 
                     <button type="submit">Anmelden</button>
                 </fieldset>
             </form>
-
         </main>
-        
+
         <script src="/assets/js/script.js"></script>
     </body>
 </html>

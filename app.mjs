@@ -15,6 +15,7 @@
 // Import modules
 import path from "path"; // internal nodejs module
 import express from "express"; // external module
+import bodyParser from "body-parser"; // external module
 
 import indexRouter from "./src/routes/indexRouter.mjs"; // own internal module
 import loginRouter from "./src/routes/loginRouter.mjs"; // own internal module
@@ -28,6 +29,8 @@ const port = 8000;
 // Verzeichnis, in dem sämtliche (statischen) Dateien zur Verwendung
 // in dynamisch erzuegten HTML - Dokumenten liegen
 app.use(express.static(path.resolve("static")));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // ejs - HTML-Templates mit Embedded Javascript!
 app.set("view engine", "ejs");
