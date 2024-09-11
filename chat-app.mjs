@@ -38,7 +38,9 @@ io.on("connection", (socket) => {
         console.log("New message received: ", message);
 
         // Nachricht an alle Clients ausliefern
-        io.emit("chat message", message);
+        socket.emit("chat message", message);
+        socket.broadcast.emit("chat message", message);
+        // io.emit("chat message", message);
     });
 });
 

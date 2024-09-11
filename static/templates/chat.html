@@ -16,13 +16,7 @@
                 id="input"
                 autocomplete="off" /><button>Send</button>
         </form>
-
-        <script src="/socket.io/socket.io.js"></script>
-        <script>
-            var socket = io();
-            
-        </script>
-        <style>
+       <style>
             body {
                 margin: 0;
                 padding-bottom: 3rem;
@@ -77,7 +71,10 @@
                 background: #efefef;
             }
         </style>
+
+        <script src="/socket.io/socket.io.js"></script>
         <script>
+            var socket = io();
             var form = document.getElementById("form");
             var input = document.getElementById("input");
 
