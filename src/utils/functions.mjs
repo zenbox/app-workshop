@@ -10,16 +10,49 @@
  * @copyright (c) 2024 Michael Reichart, Cologne
  */
 
-function sum(a, b) {
-    if (typeof a === "string") {
-        a = parseFloat(a);
-    }
+/* @desc Muss sämtliche Zahlen addieren können.
+         Bei falschen Wertetypen soll die Funktion versuchen, die Addition trotzdem zu durchzuführen.
+         Sollte das nicht möglich sein, wird ein Fehler geworfen.
+*/
+function add(a, b) {
 
-    if (typeof b === "string") {
-        b = parseFloat(b);
-    }
+    // Prüfen, ob die Parameter Zahlen sind
+    if (typeof a === "string") a = parseFloat(a);
+    if (typeof b === "string") b = parseFloat(b);
 
     return a + b;
 }
 
-export { sum };
+ class Sum {
+
+    constructor(a, b) {
+        this.a = a;
+        this.b = b;
+
+        this.a = this.isStringThenConvertToNumber(a);
+    }
+
+    isStringThenConvertToNumber(value) {
+        if (typeof value === "string") {
+            return parseFloat(value);
+        }
+        return value;
+    }
+
+    add(a, b) {
+        return this.a + this.b;
+    }
+
+}
+
+export { Sum, add };
+
+
+/*
+    let fn = (event) => {console.log("click")}
+
+    document.querySelector("button").addEventListener("click", (event) => { fn(event) });
+
+
+
+*/
