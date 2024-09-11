@@ -6,6 +6,7 @@ node_modules/
 .filesystem-example/
 .vscode/
 
+.main.mjs
 .babelrc
 .eslintrc.json
 .git-reset.md

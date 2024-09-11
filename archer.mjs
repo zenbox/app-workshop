@@ -30,22 +30,22 @@ app.get("/text", (request, response) => {
     response.end();
 });
 
-// io.on("connection", (socket) => {
-//     console.log("New connection established");
+io.on("connection", (socket) => {
+    console.log("New connection established");
 
-//     socket.on("disconnect", () => {
-//         console.log("Connection closed");
-//     });
+    socket.on("disconnect", () => {
+        console.log("Connection closed");
+    });
 
-//     socket.on("chat message", (message) => {
-//         console.log("New message received: ", message);
+    socket.on("chat message", (message) => {
+        console.log("New message received: ", message);
 
-//         // Nachricht an alle Clients ausliefern
-//         socket.emit("chat message", message);
-//         socket.broadcast.emit("chat message", message);
-//         // io.emit("chat message", message);
-//     });
-// });
+        // Nachricht an alle Clients ausliefern
+        socket.emit("chat message", message);
+        socket.broadcast.emit("chat message", message);
+        // io.emit("chat message", message);
+    });
+});
 
 server.listen(port, host, () => {
     console.log(`Server is running at http://${host}:${port}`);

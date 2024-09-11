@@ -79,29 +79,29 @@ app.use("/register", registerRouter);
 //     console.log(request.responseText);
 // };
 
-// Alternativ: Fetch-API
-const sendRequest = function () {
-    console.log("Request started");
-    let data = {
-        username: "Michael",
-        password: "1234",
-    };
-    fetch("http://localhost:8002/text", {
-        method: "GET",
-        // body: JSON.stringify(data),
-        headers: {
-            "Content-Type": "text/html",
-        },
-    })
-        .then((response) => {
-            console.log(response.status);
-            console.log(response.text());
-        })
-        .then((text) => console.log("text: ", text))
-        .catch((error) => console.error(error));
-};
+// // Alternativ: Fetch-API
+// const sendRequest = function () {
+//     console.log("Request started");
+//     let data = {
+//         username: "Michael",
+//         password: "1234",
+//     };
+//     fetch("http://localhost:8002/text", {
+//         method: "GET",
+//         // body: JSON.stringify(data),
+//         headers: {
+//             "Content-Type": "text/html",
+//         },
+//     })
+//         .then((response) => {
+//             console.log(response.status);
+//             console.log(response.text());
+//         })
+//         .then((text) => console.log("text: ", text))
+//         .catch((error) => console.error(error));
+// };
 
-setTimeout(sendRequest, 5000);
+// setTimeout(sendRequest, 5000);
 
 // Webservice starten
 app.listen(port, hostname, () => {
