@@ -24,7 +24,7 @@ const port = 8001;
 app.use(express.static('static'));
 
 app.get('/', (request, response) => { 
-    response.sendFile('./static/index.html');
+    response.sendFile('./static/templates/chat.html');
 });
 
 io.on("connection", (socket) => { 
