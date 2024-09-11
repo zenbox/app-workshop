@@ -15,8 +15,10 @@ import User from "../models/User.mjs";
 const user = new User();
 
 class Auth {
-    async initDb() {
-        this.db = await initDb();
+    constructor() {}
+
+    initDb() {
+        this.db = initDb();
     }
 
     handleLogin(username, password) {

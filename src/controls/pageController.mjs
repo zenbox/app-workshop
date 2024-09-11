@@ -1,5 +1,4 @@
-/** Seiten Controller
- *
+/** PageController
  * @package Webapplication
  * @module Webapplication
  * @author Michael <michael.reichart@gfu.net>
@@ -12,18 +11,26 @@
 
 import { initDb } from "../models/database.mjs";
 import User from "../models/User.mjs";
+
 const user = new User();
 
 class PageController {
-    constructor() {}
+    constructor() {
 
-    async initDb() {
-        this.db = await initDb();
     }
+
+    initDb() {
+        this.db = initDb();
+    }
+
     async handleUserList() {
-        const users = await user.fetchUser(this.db);
-        console.log("USERS: ", users);
-        return users;
+        try {
+            const users = await user.fetchUser(this.db);
+            return users;
+        } catch (error) {
+            console.error("Error handling user list:", error);
+            throw error;
+        }
     }
 }
 

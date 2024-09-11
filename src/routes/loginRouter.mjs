@@ -14,7 +14,7 @@
 import path from "path";
 // - - - - -
 import express from "express";
-import bodyParser from "body-parser"; 
+import bodyParser from "body-parser";
 // - - - - -
 
 import Auth from "../controls/authController.mjs";
@@ -29,7 +29,7 @@ const onGetLogin = (request, response) => {
     response.render("login", {
         title: "Login",
         message: "Please login!",
-    });x
+    });
 };
 
 const onPostLogin = (request, response) => {

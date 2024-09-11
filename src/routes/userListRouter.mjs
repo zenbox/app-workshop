@@ -24,14 +24,21 @@ pageController.initDb();
 const userListRouter = express.Router();
 
 // Router - Middleware
-const onGetUserList = (request, response) => {
-    const users = pageController.handleUserList();
+const onGetUserList = async (request, response) => {
+    try {
+        const users = await pageController.handleUserList();
 
-    response.render("user-list", {
-        title: "Registrierte Benutzer",
-        message: "Die Liste aller registrierten Benutzer!",
-        users: users,
-    });
+        console.log("USERS: ", users);
+
+        response.render("user-list", {
+            title: "Registrierte Benutzer",
+            message: "Die Liste aller registrierten Benutzer!",
+            users: users,
+        });
+    } catch (error) {
+        console.error("Error fetching user list:", error);
+        response.status(500).send("Internal Server Error");
+    }
 };
 
 // Dynamische Route nach "/login"

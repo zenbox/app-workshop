@@ -30,7 +30,6 @@ const onGetRegister = (request, response) => {
         title: "Register",
         message: "Please register a new account!",
     });
-    x;
 };
 
 const onPostRegister = (request, response) => {

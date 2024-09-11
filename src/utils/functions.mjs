@@ -1,7 +1,7 @@
 /** Function Collection
  *
  * @package Webapplication
- * @module Funtions
+ * @module Functions
  * @author Michael <michael.reichart@gfu.net>
  * @version v1.0.0
  * @since 2024-09-10

@@ -17,7 +17,12 @@ import path from "path";
 
 // external modules
 import express from "express";
+import session from "express-session";
 import bodyParser from "body-parser";
+
+
+
+
 
 // own internal modules
 import indexRouter from "./src/routes/indexRouter.mjs";
@@ -30,6 +35,15 @@ const app = express(); // Siehe Dokumentation ...
 
 const hostname = "localhost";
 const port = 8000;
+
+// Session - Middleware
+app.use(
+    session({
+        secret: "your_secret_key",
+        resave: false,
+        saveUninitialized: false,
+    })
+);
 
 // Verzeichnis, in dem sämtliche (statischen) Dateien zur Verwendung
 // in dynamisch erzuegten HTML - Dokumenten liegen

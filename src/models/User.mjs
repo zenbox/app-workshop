@@ -9,6 +9,7 @@
  * @license MIT {https://opensource.org/licenses/MIT}
  * @copyright (c) 2024 Michael Reichart, Cologne
  */
+import bcrypt from "bcrypt";
 
 class User {
     constructor() {}
@@ -38,7 +39,9 @@ class User {
      * @param   {type} desc
      * @returns {void}
      */
-    findUserByUsername() {}
+    findUserByUsername() {
+        return db.get("SELECT * FROM users WHERE username = ?", [username]);
+    }
 
     /**
      * @desc    Verify the password
@@ -46,15 +49,24 @@ class User {
      * @param   {type} desc
      * @returns {void}
      */
-    verifyPassword() {}
+    verifyPassword() {
+        return bcrypt.compare(password, user.password);
+    }
 
+    /**
+     * @desc    Fetch all users
+     * @param   {object} db - Databse handler object
+     * @returns {array}
+     * @throws  {Error}
+     */
     async fetchUser(db) {
-        const resultset = await db.all("SELECT * FROM users");
-
-        console.log("RESULT: ");
-        console.dir(resultset);
-
-        return resultset;
+        try {
+            const resultset = await db.all("SELECT * FROM users");
+            return resultset;
+        } catch (error) {
+            console.error("Error fetching users:", error);
+            throw error;
+        }
     }
 }
 

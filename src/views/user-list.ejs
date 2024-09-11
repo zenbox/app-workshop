@@ -16,12 +16,12 @@
         <main>
             <h1><%= title %></h1>
             <p><%= message %></p>
+            <p><%= users %></p>
+            <p><%= users.length %></p>
 
-            <!-- <% for (let key in users) { %>
-            <div class="user">
-                <p><%= users[key] %></p>
-            </div>
-            <% } %> -->
+            <% for (let key in users) { %>
+            <li><%= key %></li>
+            <% } %>
         </main>
         <script src="/assets/js/script.js"></script>
     </body>

@@ -5,7 +5,8 @@ node_modules/
 .babelrc
 .eslintrc.json
 .git-reset.md
-
+.socket-chat-example
+.filesystem-example
 .vscode
 .vscode
 .vscode/launch.json
