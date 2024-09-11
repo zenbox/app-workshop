@@ -2,13 +2,12 @@
 node_modules/
 
 # Other stuff not to upload
-socket-chat-example/
-filesystem-example/
+.socket-chat-example/
+.filesystem-example/
+.vscode/
 
 .babelrc
 .eslintrc.json
 .git-reset.md
-.vscode
-.vscode
 .vscode/launch.json
 .vscode/settings.json
