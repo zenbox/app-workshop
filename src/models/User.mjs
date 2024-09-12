@@ -8,6 +8,10 @@
  * @see i.e. inspired by ... {link to}
  * @license MIT {https://opensource.org/licenses/MIT}
  * @copyright (c) 2024 Michael Reichart, Cologne
+ *
+ * @description Die wesentliche Änderung gegenüber der ersten Version von User.mjs ist, dass nun sämtliche Datenbank-Aktionen hier gemacht werden. Das bettifft die CB-Verbindung und auch die SQL-Statements samt deren Result Sets.
+ * Der Controller muss nur noch anfragen, was er braucht. Diese Vorgehensweise vermeidet Fehler durch Asynchronität und macht den Code übersichtlicher.
+ * try-catches helfen bei der Siche nach Fehlern durch Asynchronität.
  */
 import sqlite3 from "sqlite3";
 import bcrypt from "bcrypt";
@@ -94,64 +98,3 @@ class User {
 }
 
 export default User;
-
-// class User {
-//     constructor() {}
-
-//     /**
-//      * @desc    Create a new user
-//      *
-//      * @param   {object} db - Databse handler object
-//      * @param   {string} username
-//      * @param   {string} password
-//      *
-//      * @returns {boolean}
-//      */
-//     createUser(db, username, password) {
-//         // Einfügen des Users in die Datenbank
-//         db.run("INSERT INTO users (username, password) VALUES (?, ?)", [
-//             username,
-//             password,
-//         ]);
-
-//         return true;
-//     }
-
-//     /**
-//      * @desc    Find a user by username
-//      *
-//      * @param   {type} desc
-//      * @returns {void}
-//      */
-//     findUserByUsername() {
-//         return db.get("SELECT * FROM users WHERE username = ?", [username]);
-//     }
-
-//     /**
-//      * @desc    Verify the password
-//      *
-//      * @param   {type} desc
-//      * @returns {void}
-//      */
-//     verifyPassword() {
-//         return bcrypt.compare(password, user.password);
-//     }
-
-//     /**
-//      * @desc    Fetch all users
-//      * @param   {object} db - Databse handler object
-//      * @returns {array}
-//      * @throws  {Error}
-//      */
-//     async fetchUser(db) {
-//         try {
-//             const resultset = await db.all("SELECT * FROM users");
-//             return resultset;
-//         } catch (error) {
-//             console.error("Error fetching users:", error);
-//             throw error;
-//         }
-//     }
-// }
-
-// export default User;
