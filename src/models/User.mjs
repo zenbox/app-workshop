@@ -33,6 +33,7 @@ class User {
      * @throws  {Error}
      */
     async createUser(username, password) {
+        this.initDb();
         try {
             const hashedPassword = await bcrypt.hash(password, 10);
             const result = await this.db.run(
@@ -53,6 +54,7 @@ class User {
      * @throws  {Error}
      */
     async findUserByName(username) {
+        this.initDb();
         try {
             const user = await this.db.get(
                 "SELECT * FROM users WHERE username = ?",
@@ -73,6 +75,7 @@ class User {
      * @throws  {Error}
      */
     async verifyPassword(password, user) {
+        this.initDb();
         try {
             return await bcrypt.compare(password, user.password);
         } catch (error) {

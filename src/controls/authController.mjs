@@ -25,18 +25,36 @@ class Auth {
         console.log("Authentification: ", username, password);
     }
 
-    handleRegister(username, password) {
+    /**
+     * @desc    Register a new user
+     * @param   {string} username - The username of the user
+     * @param   {string} password - The password of the user
+     * @returns {object} - The created user
+     * @throws  {Error}
+     */
+    async handleRegister(username, password) {
         console.log("Register: ", username, password);
 
-        let result = user.createUser(this.db, username, password);
+        // Überprüfe, ob der Benutzername bereits existiert
+        const existingUser = await user.findUserByName(username);
+        if (existingUser) {
+            console.log("Error: Username already exists");
+            return;
+        }
+
+        // Erstelle den Benutzer
+        const result = await user.createUser(username, password);
 
         if (result) {
             console.log("User created");
         } else {
             console.log("User not created");
         }
+
+        await this.db.close();
     }
 }
+
 
 export default Auth;
 
